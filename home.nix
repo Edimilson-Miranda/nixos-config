@@ -91,9 +91,9 @@
     ];
   };
   home.file.".config/nvim" = {
-    source = ./dotfiles/nvim/.config/nvim;
+    source = ./nvim/.config/nvim;
     recursive = true;
   };
   home.sessionVariables = { EDITOR = "nvim"; };
-  # programs.home-manager.enable = true;
+  programs.home-manager.enable = true;
 }
