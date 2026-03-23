@@ -95,7 +95,9 @@
     ];
   };
   home.file.".config/nvim" = {
-    source = ./nvim/.config/nvim;
+    # source = ~/dotfiles/nvim/.config/nvim;
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/nvim/.config/nvim";
+    
     recursive = true;
   };
   home.sessionVariables = {
