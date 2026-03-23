@@ -23,6 +23,21 @@
     gnumake
     unzip
   ];
+
+  programs.lazygit = {
+    enable = true;
+    settings = {
+      gui = {
+        pageSize = 20;
+        scrollHeight = 2;
+        theme = {
+          activeBorderColor = ["blue" "bold"];
+          inactiveBorderColor = ["white"];
+        };
+      };
+    };
+  };
+
   programs.bash = {
     enable = true;
     # This makes login shells also source .bashrc
