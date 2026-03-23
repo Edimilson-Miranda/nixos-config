@@ -41,31 +41,15 @@
   programs.bash = {
     enable = true;
     # This makes login shells also source .bashrc
-    # profileExtra = "if [ -f \"$HOME/.bashrc\" ]; then . \"$HOME/.bashrc\"; fi";
-    initExtra = ''
-      # Enables zoxide's own 'z' command and database tracking
-      eval "$(zoxide init bash)"
-      # Custom function to gracefully override 'cd'
-      cd() {
-        # Try to use zoxide's smart search first.
-        # The '-e' flag makes zoxide echo the path instead of cd-ing to it.
-        # The '2>/dev/null' suppresses errors if zoxide finds no match.
-        local new_dir
-        new_dir=$(zoxide query "$@" 2>/dev/null)
-        if [ -n "$new_dir" ]; then
-          # If zoxide found a directory, go there
-          builtin cd "$new_dir"
-        else
-          # Otherwise, use the standard 'cd' command
-          builtin cd "$@"
-        fi
-      }
-    '';
+    profileExtra = "if [ -f \"$HOME/.bashrc\" ]; then . \"$HOME/.bashrc\"; fi";
   };
 
   programs.zoxide = {
     enable = true;
     enableBashIntegration = true;
+    options = [
+      "--cmd cd"
+    ];
   };
 
   programs.starship = {
