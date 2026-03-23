@@ -171,10 +171,16 @@
       imagemagick
     ];
   };
-  home.file.".config/nvim" = {
-    # source = ~/dotfiles/nvim/.config/nvim;
-    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/nvim/.config/nvim";
-    recursive = true;
+  home.file = {
+    ".config/nvim" = {
+      # source = ~/dotfiles/nvim/.config/nvim;
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/nvim/.config/nvim";
+      recursive = true;
+    };
+
+    ".config/starship.toml" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/starship/.config/starship.toml";
+    };
   };
   home.sessionVariables = {
     EDITOR = "nvim";
