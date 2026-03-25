@@ -190,6 +190,7 @@
     defaultEditor = true;
     extraPackages = with pkgs; [
       imagemagick
+      nodejs_24
     ];
   };
   home.file = {
