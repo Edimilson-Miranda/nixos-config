@@ -118,7 +118,6 @@
 
   programs.tmux = {
     enable = true;
-    extraConfig = builtins.readFile ./tmux/.tmux.conf;
   };
 
   programs.zoxide = {
@@ -180,6 +179,9 @@
 
     ".config/starship.toml" = {
       source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/starship/.config/starship.toml";
+    };
+    ".tmux.conf" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/tmux/.tmux.conf";
     };
   };
   home.sessionVariables = {
