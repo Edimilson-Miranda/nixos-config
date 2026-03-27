@@ -1,7 +1,6 @@
 return {
   {
     "kawre/leetcode.nvim",
-    build = ":TSUpdate html", -- ensure html parser installed
     dependencies = {
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
