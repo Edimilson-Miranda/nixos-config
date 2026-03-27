@@ -182,7 +182,9 @@
     lt = "eza --tree";
     hh = "home-manager switch --flake .";
     kilo = "npx -y --package @kilocode/cli@7.1.2 kilo";
+    nvim-fresh = "rm -rf ~/.local/share/nvim/lazy ~/.cache/nvim && nvim";
   };
+
   programs.neovim = {
     enable = true;
     vimAlias = true;
