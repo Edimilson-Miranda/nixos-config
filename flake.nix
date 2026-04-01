@@ -32,6 +32,10 @@
           system = "x86_64-linux";
           username = "kaungminkhant";
         };
+        "crayon@nixie" = mkHome {
+          system = "x86_64-linux";
+          username = "crayon";
+        };
       };
     };
 }

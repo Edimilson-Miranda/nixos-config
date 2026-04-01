@@ -23,6 +23,8 @@
     rustc
     cargo
     uv
+    nodejs_24
+    tree-sitter
   ];
 
   programs.opencode = {
@@ -192,7 +194,6 @@
     defaultEditor = true;
     extraPackages = with pkgs; [
       imagemagick
-      nodejs_24
     ];
   };
   home.file = {
