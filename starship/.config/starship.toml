@@ -6,6 +6,8 @@ $all\
 $git_branch\
 $git_status\
 $fill\
+$username\
+$hostname\
 $cmd_duration\
 $line_break\
 $character\
@@ -139,7 +141,10 @@ format = '\[[$symbol($version)]($style)\]'
 format = '\[[$symbol$branch]($style)\]'
 
 [hostname]
-format = '\[[$ssh_symbol($hostname)]($style)\] '
+ssh_only = false
+disabled = false
+style = 'bold green'
+format = '[$ssh_symbol($username)($hostname)]($style)\] '
 
 [java]
 format = '\[[$symbol($version)]($style)\]'
@@ -280,7 +285,8 @@ format = '\[[$time]($style)\]'
 format = '\[[$symbol($version)]($style)\]'
 
 [username]
-format = '\[[$user]($style)\]'
+show_always = true
+format = '\[[$user]($style)@'
 
 [vagrant]
 format = '\[[$symbol($version)]($style)\]'
