@@ -16,7 +16,7 @@
         {
           system,
           username,
-          modules ? [ ],
+          modules ? [ ./modules/local-links.nix ],
         }:
         home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.${system};
@@ -42,9 +42,10 @@
           system = "x86_64-linux";
           username = "crayon";
         };
-        "guest@docker" = mkHome {
+        "vscode@codespaces" = mkHome {
           system = "x86_64-linux";
-          username = "guest";
+          username = "vscode";
+          modules = [ ./modules/codespace.nix ];
         };
       };
     };
