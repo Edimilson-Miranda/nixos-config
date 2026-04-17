@@ -3,10 +3,10 @@
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
   "features": {
     "ghcr.io/devcontainers/features/nix:1": {
-      "extraNixConfig": "experimental-features = nix-command flakes"
+      "extraNixConfig": "experimental-features = nix-command flakes",
+      "packages": "home-manager"
     }
   },
-  "onCreateCommand": "nix build .#homeConfigurations.vscode@codespaces.activationPackage",
   "customizations": {
     "vscode": {
       "extensions": [
