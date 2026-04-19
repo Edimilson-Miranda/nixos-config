@@ -51,24 +51,6 @@
 
   programs.opencode = {
     enable = true;
-    settings = {
-      model = "openai/gpt-5.4";
-      mcp = {
-        "nixos" = {
-          "type" = "local";
-          "enabled" = true;
-          "command" = [
-            "nix"
-            "run"
-            "github:utensils/mcp-nixos"
-            "--"
-          ];
-        };
-      };
-      plugin = [
-        "oh-my-opencode"
-      ];
-    };
   };
 
   programs.lazygit = {
