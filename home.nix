@@ -52,7 +52,7 @@
   programs.opencode = {
     enable = true;
     settings = {
-      model = "opencode/minimax-m2.5-free";
+      model = "openai/gpt-5.4";
       mcp = {
         "nixos" = {
           "type" = "local";
