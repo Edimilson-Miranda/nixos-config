@@ -57,7 +57,7 @@
         };
       };
       plugin = [
-        "oh-my-opencode@3.12.3"
+        "oh-my-opencode"
       ];
     };
   };
