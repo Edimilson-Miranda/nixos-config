@@ -49,8 +49,10 @@
           "type" = "local";
           "enabled" = true;
           "command" = [
-            "uvx"
-            "mcp-nixos"
+            "nix"
+            "run"
+            "github:utensils/mcp-nixos"
+            "--"
           ];
         };
       };
