@@ -31,6 +31,8 @@
     inter
     noto-fonts
     noto-fonts-color-emoji
+    google-chrome
+    gnomeExtensions.cloudflare-warp-toggle
   ];
 
   fonts.fontconfig = {
