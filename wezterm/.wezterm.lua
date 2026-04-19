@@ -41,10 +41,10 @@ config.window_close_confirmation = "AlwaysPrompt"
 -- font_with_fallback ensures glyphs always exist
 -- Nerd Font is REQUIRED for LazyVim icons
 config.font = wezterm.font_with_fallback({
-	-- "JetBrains Mono",
-	"Cascadia Code", -- Windows fallback
-	-- "CaskaydiaCove Nerd Font Mono",
-	-- "FiraCode Nerd Font", -- icons + ligatures
+	"JetBrainsMono Nerd Font",
+	"JetBrainsMono Nerd Font Mono",
+	"Cascadia Code", -- fallback until HM switch installs JetBrains live
+	"Noto Color Emoji",
 })
 -- Font size in points
 -- Typical range: 11.0 - 14.0

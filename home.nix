@@ -27,12 +27,22 @@
     lsof
     spotify
     cascadia-code
+    nerd-fonts.jetbrains-mono
+    inter
+    noto-fonts
+    noto-fonts-color-emoji
   ];
 
   fonts.fontconfig = {
     enable = true;
     defaultFonts = {
-      monospace = [ "Cascadia Code"];
+      monospace = [ "JetBrainsMono Nerd Font" ];
+      sansSerif = [
+        "Inter"
+        "Noto Sans"
+      ];
+      serif = [ "Noto Serif" ];
+      emoji = [ "Noto Color Emoji" ];
     };
   };
 
