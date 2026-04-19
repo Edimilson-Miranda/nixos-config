@@ -1,8 +1,7 @@
-{
-  config,
-  pkgs,
-  username,
-  ...
+{ config
+, pkgs
+, username
+, ...
 }:
 {
   home.username = username;
@@ -213,7 +212,11 @@
     enable = true;
     vimAlias = true;
     viAlias = true;
+    withRuby = false;
+    withPython3 = false;
     defaultEditor = true;
+    # Might need to disable if LazyVim is not in use
+    sideloadInitLua = true;
     extraPackages = with pkgs; [
       imagemagick
     ];

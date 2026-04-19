@@ -13,10 +13,10 @@
     { nixpkgs, home-manager, ... }:
     let
       mkHome =
-        {
-          system,
-          username,
-          modules ? [ ./modules/local-links.nix ],
+        { system
+        , username
+        , modules ? [ ./modules/local-links.nix ]
+        ,
         }:
         home-manager.lib.homeManagerConfiguration {
           pkgs = import nixpkgs {
