@@ -2,6 +2,8 @@
 
 Personal dotfiles repo built around Nix flakes and Home Manager.
 
+![Home screen screenshot](./cover.png)
+
 It captures my daily personal and development setup across multiple users and machines, with flake-pinned inputs for reproducible Linux environments, especially NixOS. Desktop setups are centered on Wayland with Niri, while most application configs still live under `stow/` so they can be linked by Home Manager or used manually with GNU Stow when needed.
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/crayonnova/dotfiles/tree/codespaces)
