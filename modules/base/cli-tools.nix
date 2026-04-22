@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, config, ... }:
 {
   # Pure CLI tools and utilities - suitable for remote development
   programs.ripgrep = {
@@ -24,6 +24,7 @@
     enable = true;
   };
 
-  # Link tmux config from stow directory
-  home.file.".tmux.conf".source = ../stow/tmux/.tmux.conf;
+  home.file.".tmux.conf" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/stow/tmux/.tmux.conf";
+  };
 }

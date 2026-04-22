@@ -1,5 +1,6 @@
-{ pkgs, ... }:
+{ lib, config, pkgs, ... }:
 {
+  config = lib.mkIf config.myconfig.features.devtools {
   # Development-specific tools and configurations
   programs.neovim = {
     enable = true;
@@ -15,8 +16,10 @@
     ];
   };
 
-  # Link nvim config from stow directory
-  xdg.configFile."nvim".source = ../stow/nvim/.config/nvim;
+  home.file.".config/nvim" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/stow/nvim/.config/nvim";
+    recursive = true;
+  };
 
   programs.git = {
     enable = true;
@@ -88,4 +91,5 @@
     # Only needed in WSL
     "$HOME/.npm/bin"
   ];
+  };
 }

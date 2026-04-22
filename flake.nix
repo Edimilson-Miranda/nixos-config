@@ -22,99 +22,66 @@
     let
       mkHome =
         { system
-        , username
-        , useDevtools ? false
-        , useDesktop ? false
-        , useSoftware ? false
-        , modules ? []
+        , modules
+        ,
         }:
-        let
-          # Create a dynamic home configuration using the new options-based system
-          homeConfig = { ... }: {
-            imports = [ ./home.nix ];
-            
-            crayon = {
-              inherit username;
-              features = {
-                devtools = useDevtools;
-                desktop = useDesktop;
-                fonts = useSoftware;
-                localLinks = builtins.any (m: builtins.baseNameOf (toString m) == "local-links.nix") modules;
-              };
-              system = {
-                isCodespace = builtins.any (m: builtins.baseNameOf (toString m) == "codespace.nix") modules;
-                isWayland = builtins.any (m: builtins.baseNameOf (toString m) == "wayland.nix") modules;
-                isNoctalia = builtins.any (m: builtins.baseNameOf (toString m) == "noctalia.nix") modules;
-              };
-            };
-          };
-        in
         home-manager.lib.homeManagerConfiguration {
           pkgs = import nixpkgs {
             inherit system;
             config.allowUnfree = true;
           };
-          extraSpecialArgs = { inherit username inputs; };
-          modules = [ homeConfig ];
+          extraSpecialArgs = { inherit inputs; };
+          modules = [ ./home.nix ] ++ modules;
         };
     in
     {
       homeConfigurations = {
-        # Full desktop setup with all features
         "crayon@nixos" = mkHome {
           system = "x86_64-linux";
-          username = "crayon";
-          useDevtools = true;
-          useDesktop = true;
-          useSoftware = true;
-          modules = [ ./modules/user/local-links.nix ];
+          modules = [
+            ./users/crayon.nix
+            ./profiles/desktop.nix
+          ];
         };
 
-        # Full desktop setup with wayland and noctalia
         "nova@nixos" = mkHome {
           system = "x86_64-linux";
-          username = "nova";
-          useDevtools = true;
-          useDesktop = true;
-          useSoftware = true;
-          modules = [ ./modules/wayland.nix ./modules/noctalia.nix ./modules/user/local-links.nix ];
+          modules = [
+            ./users/nova.nix
+            ./profiles/desktop.nix
+          ];
         };
 
-        # Full desktop setup
         "kaungminkhant@DESKTOP-JA8S7GL" = mkHome {
           system = "x86_64-linux";
-          username = "kaungminkhant";
-          useDevtools = true;
-          useDesktop = true;
-          useSoftware = true;
+          modules = [
+            ./users/kaungminkhant.nix
+            ./profiles/desktop.nix
+          ];
         };
 
-        # Full desktop setup
         "crayon@nixie" = mkHome {
           system = "x86_64-linux";
-          username = "crayon";
-          useDevtools = true;
-          useDesktop = true;
-          useSoftware = true;
+          modules = [
+            ./users/crayon.nix
+            ./profiles/desktop.nix
+          ];
         };
 
-        # WSL setup - no desktop but with dev tools
         "crayon@nixoswsl" = mkHome {
           system = "x86_64-linux";
-          username = "crayon";
-          useDevtools = true;
-          useDesktop = false;
-          useSoftware = false;
+          modules = [
+            ./users/crayon.nix
+            ./profiles/cli-dev.nix
+          ];
         };
 
-        # Codespaces - CLI only with dev tools
         "vscode@codespaces" = mkHome {
           system = "x86_64-linux";
-          username = "vscode";
-          useDevtools = true;
-          useDesktop = false;
-          useSoftware = false;
-          modules = [ ./modules/system/codespace.nix ];
+          modules = [
+            ./users/vscode.nix
+            ./profiles/codespace.nix
+          ];
         };
       };
     };

@@ -1,6 +1,6 @@
-{ pkgs, ... }:
+{ lib, config, pkgs, ... }:
 {
-  home.packages = with pkgs; [
+  home.packages = lib.optionals config.myconfig.features.desktop (with pkgs; [
     # Terminal
     alacritty
 
@@ -21,5 +21,5 @@
 
     # Clipboard
     wl-clipboard
-  ];
+  ]);
 }

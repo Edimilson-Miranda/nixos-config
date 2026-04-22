@@ -1,46 +1,60 @@
-{ pkgs, ... }:
+{ lib
+, config
+, pkgs
+, ...
+}:
 {
-  home.packages = with pkgs; [
-    # Development Tools
-    curl
-    wget
-    gcc
-    gnumake
-    unzip
-    rustc
-    cargo
-    uv
-    nodejs_24
-    tree-sitter
-    biome
-    aider-chat-full
+  home.packages =
+    (with pkgs; [
+      # Development Tools
+      curl
+      wget
+      gcc
+      gnumake
+      unzip
+      rustc
+      cargo
+      uv
+      nodejs_24
+      tree-sitter
+      biome
+      # aider-chat-full
 
-    # System Utilities
-    fastfetch
-    fzf
-    fd
-    nh
-    ripgrep
-    btop
-    lsof
-
-    # Fonts
-    cascadia-code
-    nerd-fonts.jetbrains-mono
-    inter
-    noto-fonts
-    noto-fonts-color-emoji
-
-    # Applications
-    wootility
-
-    # Desktop Environment
-    xwayland-satellite
-    cosmic-wallpapers
-    gnome-control-center
-    pavucontrol
-    playerctl
-    brightnessctl
-    gnomeExtensions.cloudflare-warp-toggle
-  ];
+      # System Utilities
+      fastfetch
+      fzf
+      fd
+      nh
+      ripgrep
+      btop
+      lsof
+    ])
+    ++ lib.optionals config.myconfig.features.fonts (
+      with pkgs;
+      [
+        cascadia-code
+        nerd-fonts.jetbrains-mono
+        inter
+        noto-fonts
+        noto-fonts-color-emoji
+      ]
+    )
+    ++ lib.optionals config.myconfig.features.software (
+      with pkgs;
+      [
+        wootility
+      ]
+    )
+    ++ lib.optionals config.myconfig.features.desktop (
+      with pkgs;
+      [
+        xwayland-satellite
+        cosmic-wallpapers
+        gnome-control-center
+        pavucontrol
+        playerctl
+        brightnessctl
+        gnomeExtensions.cloudflare-warp-toggle
+      ]
+    );
 }

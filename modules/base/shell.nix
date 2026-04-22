@@ -1,4 +1,4 @@
-{ config, ... }:
+{ lib, config, ... }:
 {
   programs.bash = {
     enable = true;
@@ -36,8 +36,9 @@
     enableBashIntegration = true;
   };
 
-  # Link starship config from stow directory
-  xdg.configFile."starship.toml".source = ../stow/starship/.config/starship.toml;
+  home.file.".config/starship.toml" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/stow/starship/.config/starship.toml";
+  };
 
   programs.eza = {
     enable = true;
