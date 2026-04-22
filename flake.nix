@@ -29,27 +29,24 @@
         , modules ? []
         }:
         let
-          # Base modules - always included
-          baseModules = [
-            ./modules/base/packages.nix
-            ./modules/base/shell.nix
-            ./modules/base/cli-tools.nix
-          ];
-          
-          # Conditional modules based on flags
-          conditionalModules = 
-            (if useDevtools then [ ./modules/features/dev-tools.nix ] else []) ++
-            (if useDesktop then [ ./modules/features/desktop.nix ] else []) ++
-            (if useSoftware then [ ./modules/fonts.nix ] else []) ++
-            modules;
-          
-          # Create a dynamic home configuration
-          homeConfig = { username, ... }: {
-            imports = baseModules ++ conditionalModules;
-            home.username = username;
-            home.homeDirectory = "/home/${username}";
-            home.stateVersion = "25.05";
-            programs.home-manager.enable = true;
+          # Create a dynamic home configuration using the new options-based system
+          homeConfig = { ... }: {
+            imports = [ ./home.nix ];
+            
+            crayon = {
+              inherit username;
+              features = {
+                devtools = useDevtools;
+                desktop = useDesktop;
+                fonts = useSoftware;
+                localLinks = builtins.any (m: builtins.baseNameOf (toString m) == "local-links.nix") modules;
+              };
+              system = {
+                isCodespace = builtins.any (m: builtins.baseNameOf (toString m) == "codespace.nix") modules;
+                isWayland = builtins.any (m: builtins.baseNameOf (toString m) == "wayland.nix") modules;
+                isNoctalia = builtins.any (m: builtins.baseNameOf (toString m) == "noctalia.nix") modules;
+              };
+            };
           };
         in
         home-manager.lib.homeManagerConfiguration {
