@@ -83,13 +83,21 @@
     };
   };
 
+  programs.bun = {
+    enable = true;
+  };
+
+  home.file.".config/.bunfig.toml" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/stow/bun/.config/.bunfig.toml";
+  };
+
   home.sessionVariables = {
     EDITOR = "nvim";
   };
 
   home.sessionPath = [
-    # Only needed in WSL
-    "$HOME/.npm/bin"
-  ];
+      # Only needed in WSL
+      "$HOME/.npm/bin"
+    ];
   };
 }
