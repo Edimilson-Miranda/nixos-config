@@ -17,6 +17,7 @@
       obsidian
       vlc
       webtorrent_desktop
+      steam
     ]);
 
     programs.brave = {
