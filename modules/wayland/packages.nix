@@ -11,6 +11,7 @@ lib.mkIf config.myconfig.features.desktop {
   home.packages = with pkgs; [
     # Terminal
     alacritty
+    kitty
 
     # Launcher
     fuzzel
