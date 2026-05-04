@@ -372,6 +372,10 @@ window-rule {
     // You can get away with just app-id="wezterm" if you want.
     match app-id=r#"^org\.wezfurlong\.wezterm$"#
     default-column-width {}
+
+    // background-effect {
+    //   blur true
+    // }
 }
 
 // Open the Firefox picture-in-picture player as floating by default.
@@ -683,6 +687,3 @@ binds {
     // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }
 }
-
-include "./noctalia.kdl"
-
