@@ -9,7 +9,7 @@
         },
         {
           "keys": "Super + D",
-          "desc": "Open a Terminal: alacritty"
+          "desc": "Open a Terminal: kitty"
         },
         {
           "keys": "Super + Space",

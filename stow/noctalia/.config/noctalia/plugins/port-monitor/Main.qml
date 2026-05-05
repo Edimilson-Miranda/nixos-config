@@ -18,7 +18,7 @@ Item {
 
   // Terminal detection
   property string detectedTerminal: ""
-  property var terminalCandidates: ["ghostty", "alacritty", "kitty", "foot", "wezterm", "konsole", "gnome-terminal", "xfce4-terminal", "xterm"]
+  property var terminalCandidates: ["kitty", "ghostty", "alacritty", "foot", "wezterm", "konsole", "gnome-terminal", "xfce4-terminal", "xterm"]
   property int terminalCheckIndex: 0
 
   Component.onCompleted: {
