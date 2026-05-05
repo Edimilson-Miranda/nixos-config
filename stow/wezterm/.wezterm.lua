@@ -115,10 +115,6 @@ config.cursor_blink_rate = 600
 --   "NONE"
 config.window_decorations = "NONE"
 
--- Initial terminal size
--- config.initial_cols = 1000
--- config.initial_rows = 1000
-
 -- Prevent window resize when changing font size
 -- Important for stable Neovim layouts
 config.adjust_window_size_when_changing_font_size = false
