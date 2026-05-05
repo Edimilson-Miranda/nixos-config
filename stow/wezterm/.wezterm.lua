@@ -18,7 +18,7 @@ end
 config.check_for_updates = false
 
 -- Enable tab bar (useful when not using tmux) Other values: false
-config.enable_tab_bar = true
+config.enable_tab_bar = false
 
 -- Fancy tab bar adds GPU + layout overhead
 -- Disable when you primarily live in Neovim splits

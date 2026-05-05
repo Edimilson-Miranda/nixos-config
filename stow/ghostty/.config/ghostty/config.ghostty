@@ -7,8 +7,8 @@ window-decoration = none
 window-padding-x = 12
 window-padding-y = 0
 
-# Keep the terminal fully opaque.
-background-opacity = 1.0
+# Let Niri's compositor blur show through.
+background-opacity = 0.4
 
 # Typography
 font-size = 13.4
