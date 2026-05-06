@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ config, ... }:
 {
   programs.bash = {
     enable = true;
@@ -39,6 +39,13 @@
         fi
       }
     '';
+  };
+
+  programs.npm = {
+    enable = true;
+    settings = {
+      prefix = "\${HOME}/.npm";
+    };
   };
 
   programs.carapace = {
