@@ -96,8 +96,8 @@
       EDITOR = "nvim";
     };
 
-    # home.sessionPath = [
-    #   "$HOME/.npm-gobal"
-    # ];
+    home.sessionPath = [
+      "$HOME/.npm"
+    ];
   };
 }
