@@ -95,9 +95,5 @@
     home.sessionVariables = {
       EDITOR = "nvim";
     };
-
-    home.sessionPath = [
-      "$HOME/.npm"
-    ];
   };
 }
