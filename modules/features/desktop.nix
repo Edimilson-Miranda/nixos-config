@@ -40,6 +40,10 @@
       enable = config.myconfig.features.software;
     };
 
+    programs.qutebrowser = {
+      enable = config.myconfig.features.software;
+    };
+
     programs.vesktop = {
       enable = config.myconfig.features.software;
     };
