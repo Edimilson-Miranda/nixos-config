@@ -1,6 +1,6 @@
 return {
   "nvim-telescope/telescope.nvim",
-  enabled = false,
+  enabled = true,
   opts = {
     defaults = {
       file_ignore_patterns = {
