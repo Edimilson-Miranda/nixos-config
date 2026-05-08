@@ -1,11 +1,6 @@
 { lib, config, ... }:
 {
   # Pure CLI tools and utilities - suitable for remote development
-
-  programs.npm = {
-    enable = true;
-  };
-
   # ~/.npmrc is a read-only Nix store symlink — redirect writes to a writable path.
   # mkForce overrides the conflicting definition from programs/npm.nix.
   home.sessionVariables = {
