@@ -38,6 +38,9 @@
       ripgrep
       btop
       lsof
+      trash-cli
+      ghostscript
+      mermaid-cli
     ])
     ++ lib.optionals config.myconfig.features.fonts (
       with pkgs;
@@ -62,6 +65,8 @@
         xwayland-satellite
         cosmic-wallpapers
         gnome-control-center
+        nautilus
+        papirus-icon-theme
         pavucontrol
         playerctl
         brightnessctl

@@ -39,7 +39,7 @@ input {
         // drag false
         // drag-lock
         natural-scroll
-        // accel-speed 0.2
+        accel-speed 0.1
         // accel-profile "flat"
         // scroll-method "two-finger"
         // disabled-on-external-mouse
@@ -298,6 +298,7 @@ layout {
 spawn-at-startup "noctalia-shell"
 spawn-at-startup "brave"
 spawn-at-startup "kitty"
+spawn-sh-at-startup "wl-paste --watch cliphist store"
 // spawn-at-startup "swaybg" "-i" "/home/nova/dotfiles/wallpaper2.jpg" "-m" "fill"
 
 
@@ -491,6 +492,7 @@ binds {
     Mod+F4 hotkey-overlay-title="Session Menu" { spawn-sh "noctalia-shell ipc call sessionMenu toggle"; }
     Mod+Space hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Mod+Shift+Space hotkey-overlay-title="Search Nix/Home packages" { spawn-sh "bash \"$HOME/dotfiles/scripts/fuzzel-home-search.sh\""; }
+    Mod+Shift+C hotkey-overlay-title="Clipboard History" { spawn-sh "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"; }
     // Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
