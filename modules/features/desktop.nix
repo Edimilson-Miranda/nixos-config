@@ -6,6 +6,11 @@
 }:
 {
   config = lib.mkIf config.myconfig.features.desktop {
+    gtk.iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
+    };
+
     # Desktop shell/configuration shared by all local GUI setups.
     programs.wezterm = {
       enable = true;
