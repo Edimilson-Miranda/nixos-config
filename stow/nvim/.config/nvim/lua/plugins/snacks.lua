@@ -19,6 +19,7 @@ return {
   ---@type snacks.Config
   opts = {
     bigfile = { enabled = true },
+    image = { enabled = true },
     explorer = { enabled = true },
     indent = { enabled = true },
     input = { enabled = true },
@@ -28,10 +29,27 @@ return {
     },
     picker = {
       enabled = true,
+      actions = {
+        open_in_files = function(picker, item)
+          local path = item and (item.file or item.dir)
+          if not path then return end
+          local dir = vim.fn.isdirectory(path) == 1 and path or vim.fn.fnamemodify(path, ":h")
+          vim.fn.jobstart({ "xdg-open", dir }, { detach = true })
+        end,
+      },
       sources = {
         files = { hidden = true },
         grep = { hidden = true },
-        explorer = { hidden = true },
+        explorer = {
+          hidden = true,
+          win = {
+            list = {
+              keys = {
+                ["gx"] = "open_in_files",
+              },
+            },
+          },
+        },
         exclude = {
           "**/.env",
           "**/.env.*",
