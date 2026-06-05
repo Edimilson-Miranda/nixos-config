@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ lib, config, pkgs,... }:
 {
   config = lib.mkIf config.myconfig.features.fonts {
     fonts.fontconfig = {

@@ -12,14 +12,14 @@ in
 {
   imports = [
     ./modules/base/packages.nix
-  #//  ./modules/base/shell.nix
-  #//  ./modules/base/cli-tools.nix
-  #//  ./modules/features/dev-tools.nix
-  #  ./modules/features/desktop.nix
-   # ./modules/features/fonts.nix
-   # ./modules/system/codespace.nix
-   # ./modules/wayland
-   # ./modules/features/noctalia.nix
+    ./modules/base/shell.nix
+    ./modules/base/cli-tools.nix
+    ./modules/features/dev-tools.nix
+    ./modules/features/desktop.nix
+    ./modules/features/fonts.nix
+    ./modules/system/codespace.nix
+    ./modules/wayland
+    ./modules/features/noctalia.nix
   ];
 
   options.myconfig = {

@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ lib, pkgs, config, ... }:
 {
   home.sessionVariables = {
     NPM_CONFIG_USERCONFIG = lib.mkForce "$HOME/.config/npm/npmrc";
