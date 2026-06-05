@@ -1,5 +1,5 @@
 { config, ... }:
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   programs.zsh = {
     enable = true;
@@ -23,7 +23,7 @@
           return 1
         fi
         local result
-        result=$(${config.home.homeDirectory}/myNixOS/scripts/ai-cmd "$@") || return 1
+        result=$("${config.home.homeDirectory}/myNixOS/scripts/ai-cmd" "$@") || return 1
         local edited
         read -e "$ " edited < /dev/tty
         vared -p "$ " -c edited
