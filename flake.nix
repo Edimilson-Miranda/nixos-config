@@ -7,42 +7,24 @@
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    niri = {
-      url = "github:sodiboo/niri-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    niri.url = "github:sodiboo/niri-flake";
+    noctalia.url = "github:noctalia-dev/noctalia-shell";
   };
 
-  outputs =
-    inputs@{ nixpkgs, home-manager, ... }:
+  outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
-      mkHome =
-        { system
-        , modules
-        ,
-        }:
-        home-manager.lib.homeManagerConfiguration {
-          pkgs = import nixpkgs {
-            inherit system;
-            config.allowUnfree = true;
-          };
-          extraSpecialArgs = { inherit inputs; };
-          modules = [ ./home.nix ] ++ modules;
-        };
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
     in
     {
-      homeConfigurations = {
-        "miranda@nixos" = mkHome {
-          system = "x86_64-linux";
-          modules = [
-            ./users/miranda.nix
-            ./profiles/desktop.nix
-          ];
-        };
+      homeConfigurations."miranda@nixos" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        extraSpecialArgs = { inherit inputs; };
+        modules = [ 
+          ./home.nix
+          ./users/miranda.nix
+          ./profiles/desktop.nix
+        ];
       };
     };
 }
