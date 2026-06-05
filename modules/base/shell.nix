@@ -13,7 +13,7 @@
       share = true;
     };
 
-    initExtra = ''
+    initContent = ''
       [ -f "$HOME/.secrets" ] && source "$HOME/.secrets"
 
       ai() {
