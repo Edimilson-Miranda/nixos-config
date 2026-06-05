@@ -36,51 +36,11 @@
     in
     {
       homeConfigurations = {
-        "crayon@nixos" = mkHome {
+        "miranda@nixos" = mkHome {
           system = "x86_64-linux";
           modules = [
-            ./users/crayon.nix
+            ./users/miranda.nix
             ./profiles/desktop.nix
-          ];
-        };
-
-        "nova@nixos" = mkHome {
-          system = "x86_64-linux";
-          modules = [
-            ./users/nova.nix
-            ./profiles/desktop.nix
-          ];
-        };
-
-        "kaungminkhant@DESKTOP-JA8S7GL" = mkHome {
-          system = "x86_64-linux";
-          modules = [
-            ./users/kaungminkhant.nix
-            ./profiles/desktop.nix
-          ];
-        };
-
-        "crayon@nixie" = mkHome {
-          system = "x86_64-linux";
-          modules = [
-            ./users/crayon.nix
-            ./profiles/desktop.nix
-          ];
-        };
-
-        "crayon@nixoswsl" = mkHome {
-          system = "x86_64-linux";
-          modules = [
-            ./users/crayon.nix
-            ./profiles/cli-dev.nix
-          ];
-        };
-
-        "vscode@codespaces" = mkHome {
-          system = "x86_64-linux";
-          modules = [
-            ./users/vscode.nix
-            ./profiles/codespace.nix
           ];
         };
       };

@@ -6,19 +6,19 @@
 }:
 lib.mkIf config.myconfig.features.desktop {
   home.file.".config/alacritty/alacritty.toml" = {
-    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/stow/alacritty/.config/alacritty/alacritty.toml";
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/myNixOS/stow/alacritty/.config/alacritty/alacritty.toml";
   };
 
   home.file.".config/ghostty/config.ghostty" = {
-    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/stow/ghostty/.config/ghostty/config.ghostty";
-  };
-
-  home.file.".config/kitty/kitty.conf" = {
-    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/stow/kitty/.config/kitty/kitty.conf";
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/myNixOS/stow/ghostty/.config/ghostty/config.ghostty";
   };
 
   home.file.".config/fuzzel/fuzzel.ini" = {
-    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/stow/fuzzel/.config/fuzzel/fuzzel.ini";
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/myNixOS/stow/fuzzel/.config/fuzzel/fuzzel.ini";
+  };
+
+  home.file.".config/niri/config.kdl" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/myNixOS/stow/niri/.config/niri/config.kdl";
   };
 
   home.packages = with pkgs; [
@@ -28,7 +28,6 @@ lib.mkIf config.myconfig.features.desktop {
     ghostty
 
     # Launcher
-    fuzzel
     xdg-utils
 
     # Lock/idle/wallpaper

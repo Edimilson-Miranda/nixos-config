@@ -30,8 +30,8 @@
       enable = true;
       settings = {
         user = {
-          name = "crayonnova";
-          email = "kaungminkhant.dev@gmail.com";
+          name = "Edimilson-miranda";
+          email = "edimilsonsmp.464@gmail.com";
         };
         alias = {
           glg = "log --oneline --graph";

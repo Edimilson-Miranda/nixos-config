@@ -1,4 +1,4 @@
-{
+
   lib,
   config,
   pkgs,
@@ -11,14 +11,25 @@
       package = pkgs.papirus-icon-theme;
     };
 
-    # Desktop shell/configuration shared by all local GUI setups.
+    programs.kitty = {
+      enable = true;
+    };
+
+    xdg.mimeApps.defaultApplications = {
+      "x-scheme-handler/terminal" = "kitty.desktop";
+    };
+
+    home.file.".config/kitty/kitty.conf" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/myNixOS/stow/kitty/.config/kitty/kitty.conf";
+    };
+
     programs.wezterm = {
       enable = true;
-      enableBashIntegration = true;
+      enableBashIntegration = false;
     };
 
     home.file.".wezterm.lua" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/stow/wezterm/.wezterm.lua";
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/myNixOS/stow/wezterm/.wezterm.lua";
     };
 
     home.packages = lib.optionals config.myconfig.features.software (
@@ -62,7 +73,7 @@
     };
 
     home.file.".config/opencode/opencode.json" = lib.mkIf config.myconfig.features.software {
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/stow/opencode/.config/opencode/opencode.json";
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/myNixOS/stow/opencode/.config/opencode/opencode.json";
     };
   };
 }

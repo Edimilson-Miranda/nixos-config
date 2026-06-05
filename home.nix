@@ -36,7 +36,7 @@ in
 
     stateVersion = mkOption {
       type = types.str;
-      default = "25.05";
+      default = "26.05";
       description = "Home Manager state version";
     };
 

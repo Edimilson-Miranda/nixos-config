@@ -7,7 +7,7 @@
         "jnoortheen.nix-ide"
       ],
       "settings": {
-        "terminal.integrated.defaultProfile.linux": "bash"
+        "terminal.integrated.defaultProfile.linux": "zsh"
       }
     }
   },

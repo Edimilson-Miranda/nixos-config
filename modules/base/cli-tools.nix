@@ -1,10 +1,8 @@
 { lib, config, ... }:
 {
-  # Pure CLI tools and utilities - suitable for remote development
-  # ~/.npmrc is a read-only Nix store symlink — redirect writes to a writable path.
-  # mkForce overrides the conflicting definition from programs/npm.nix.
   home.sessionVariables = {
     NPM_CONFIG_USERCONFIG = lib.mkForce "$HOME/.config/npm/npmrc";
+    TERMINAL = "kitty";
   };
 
   home.sessionPath = [ "$HOME/.npm/bin" ];
@@ -35,11 +33,4 @@
     };
   };
 
-  programs.tmux = {
-    enable = true;
-  };
-
-  home.file.".tmux.conf" = {
-    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/stow/tmux/.tmux.conf";
-  };
 }
