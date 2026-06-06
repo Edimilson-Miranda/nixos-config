@@ -24,8 +24,7 @@
       cargo
       uv
       nodejs_24
-      tree-sitter
-      neovim
+      tree-sitte
       bat
       git
       lua-language-server

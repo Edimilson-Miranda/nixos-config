@@ -43,15 +43,7 @@
         steam
       ]
     );
-
-    nixpkgs.overlays = [
-      (final: prev: {
-        steam = prev.steam.override {
-          extraArgs = "-cef-disable-gpu-compositing";
-        };
-      })
-    ];
-
+    
     programs.brave = {
       enable = config.myconfig.features.software;
     };
