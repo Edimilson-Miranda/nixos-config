@@ -16,6 +16,7 @@
 ];
 
  programs.zsh.enable = true;
+ programs.niri.enable = true;
 
 
  # Bootloader.

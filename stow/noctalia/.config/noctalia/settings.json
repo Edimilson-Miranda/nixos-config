@@ -665,7 +665,7 @@
     },
     "wallpaper": {
         "automationEnabled": false,
-        "directory": "/home/nova/Pictures/Wallpapers",
+        "directory": "/home/miranda/Pictures/Wallpapers",
         "enableMultiMonitorDirectories": true,
         "enabled": true,
         "favorites": [
