@@ -78,6 +78,10 @@
       "--all"
     ];
   };
+  
+  home.sessionVariables = {
+  QT_QPA_PLATFORMTHEME = "qt6ct";
+  };
 
   home.shellAliases = {
     ll = "eza -l";

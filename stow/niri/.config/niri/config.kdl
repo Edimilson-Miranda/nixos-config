@@ -294,10 +294,14 @@ layout {
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 
+environment {
+  QT_QPA_PLATFORMTHEME "qt6ct"
+}
+
 // Noctalia is started directly by niri at session startup.
 spawn-at-startup "noctalia-shell"
 //spawn-at-startup "brave"
-spawn-at-startup "kitty"
+//spawn-at-startup "kitty"
 spawn-sh-at-startup "wl-paste --watch cliphist store"
 // spawn-at-startup "swaybg" "-i" "/home/nova/dotfiles/wallpaper2.jpg" "-m" "fill"
 
