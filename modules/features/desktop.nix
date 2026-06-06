@@ -34,7 +34,7 @@
         steam
         adw-gtk3
         nwg-look
-        qt6ct
+        
       ]
     );
     
