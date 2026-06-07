@@ -24,7 +24,6 @@
       cargo
       uv
       nodejs_24
-      home-manager 
       tree-sitter
       bat
       git
@@ -35,7 +34,6 @@
       nemo 
       teams-for-linux
       rclone
-      opencode
       zed-editor 
       fish
       

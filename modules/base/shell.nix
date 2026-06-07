@@ -25,12 +25,14 @@
   };
   
 
+  #npm config
   programs.npm = {
     enable = true;
     settings = {
-      prefix = "\${HOME}/.npm";
+      prefix = "$HOME/.npm-global";
     };
   };
+  home.file.".npm-global/.keep".text = "";
 
   programs.carapace = {
     enable = true;
