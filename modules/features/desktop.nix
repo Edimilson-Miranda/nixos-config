@@ -48,7 +48,7 @@
     
     programs.spicetify = lib.mkIf config.myconfig.features.software {
       enable = true;
-      theme = spicetify-nix.themes.onepunch;
+      theme = spice-lib.themes.onepunch; 
       enabledExtensions = with spicetify-nix.extensions; [
         adblock
         shuffle
