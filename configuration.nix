@@ -95,7 +95,7 @@
     isNormalUser = true;
     description = "miranda";
     extraGroups = [ "networkmanager" "wheel" ];
-    shell = pkgs = zsh;
+    shell = pkgs.zsh;
     packages = with pkgs; [
       
     #  thunderbird
