@@ -33,7 +33,6 @@
     home.packages = lib.optionals config.myconfig.features.software (
       with pkgs;
       [
-        spotify
         google-chrome
         obsidian
         vlc
@@ -46,11 +45,11 @@
     );
     
     programs.spicetify = lib.mkIf config.myconfig.features.software {
-      enable = true;
-      theme = spice-lib.themes.onepunch; 
-      enabledExtensions = with spicetify-nix.extensions; [
-        adblock
-        shuffle
+    enable = true;
+    theme = spicePkgs.themes.onepunch;          
+    enabledExtensions = with spicePkgs.extensions; [
+      adblockify                                 
+      shuffle
       ];
     };
 
