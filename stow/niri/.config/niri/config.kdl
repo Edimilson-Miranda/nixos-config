@@ -500,7 +500,7 @@ binds {
     Mod+G hotkey-overlay-title="Open Telegram" { spawn "Telegram"; }
     Mod+B hotkey-overlay-title="Open Firefox" { spawn "firefox"; }
     Mod+Shift+Z hotkey-overlay-title="Open Zed Editor" { spawn "sh" "-c" "$HOME/.config/niri/Scripts/zed-resize-fix.sh"; }
-    Mod+Z hotkey-overlay-title="Teams-for-linux" { spawn "Teams-for-linux"; }
+    Mod+Z hotkey-overlay-title="Teams-for-linux" { spawn "teams-for-linux"; }
     Mod+Ctrl+S hotkey-overlay-title="Open OpenCode" { spawn "kitty" "opencode"; }
     Mod+Ctrl+Return { spawn "kitty" "--class=floating-kitty"; }
     Mod+Shift+O hotkey-overlay-title="Open OBS Studio" { spawn "flatpak" "run" "com.obsproject.Studio"; }
