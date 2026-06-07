@@ -36,8 +36,11 @@
 
       # 2. Configuração apenas do Home Manager (opcional, para testes rápidos)
       homeConfigurations."miranda@nixos" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.${system};
-        extraSpecialArgs = { inherit inputs; }; 
+        pkgs = import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;  # <- isso resolve o spotify
+        };
+        extraSpecialArgs = { inherit inputs; };
         modules = [ ./home.nix ./users/miranda.nix ./profiles/desktop.nix ];
       };
     };
