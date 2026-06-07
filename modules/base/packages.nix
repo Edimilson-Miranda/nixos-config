@@ -35,6 +35,7 @@
       teams-for-linux
       rclone
       opencode
+      zed-editor 
       
 
       nixd
