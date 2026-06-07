@@ -34,6 +34,7 @@
       nemo 
       teams-for-linux
       rclone
+      opencode
       zed-editor 
       fish
       
