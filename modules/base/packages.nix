@@ -24,6 +24,7 @@
       cargo
       uv
       nodejs_24
+      home-manager 
       tree-sitter
       bat
       git
@@ -36,6 +37,7 @@
       rclone
       opencode
       zed-editor 
+      fish
       
 
       nixd

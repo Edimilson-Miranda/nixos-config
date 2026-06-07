@@ -1,38 +1,30 @@
 { config, pkgs, lib, ... }:
 {
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    autosuggestion.enable = true;
-    syntaxHighlighting.enable = true;
-    history = {
-      size = 10000;
-      save = 10000;
-      ignoreDups = true;
-      ignoreSpace = true;
-      share = true;
-    };
+  programs.fish = {
+  enable = true;
+  enableCompletion = true;
+  autosuggestion.enable = true;
+  syntaxHighlighting.enable = true;
 
-    initContent = ''
-      [ -f "$HOME/.secrets" ] && source "$HOME/.secrets"
+  interactiveShellInit = ''
+    if test -f "$HOME/.secrets"
+      source "$HOME/.secrets"
+    end
 
-      ai() {
-        if [[ $# -eq 0 ]]; then
-          echo "Usage: ai <description>" >&2
-          return 1
-        fi
-        local result
-        result=$("${config.home.homeDirectory}/myNixOS/scripts/ai-cmd" "$@") || return 1
-        local edited
-        read -e "$ " edited < /dev/tty
-        vared -p "$ " -c edited
-        if [[ -n "$edited" ]]; then
-          print -s "$edited"
-          eval "$edited"
-        fi
-      }
+    function ai
+      if test (count $argv) -eq 0
+        echo "Usage: ai <description>" >&2
+        return 1
+      end
+
+      set result ("${config.home.homeDirectory}/myNixOS/scripts/ai-cmd" $argv)
+      or return 1
+
+      echo $result
+    end
     '';
   };
+  
 
   programs.npm = {
     enable = true;
@@ -43,17 +35,17 @@
 
   programs.carapace = {
     enable = true;
-    enableZshIntegration = true;
+    enableFishIntegration = true;
   };
 
   programs.atuin = {
     enable = true;
-    enableZshIntegration = true;
+    enableFishIntegration = true;
   };
 
   programs.zoxide = {
     enable = true;
-    enableZshIntegration = true;
+    enableFishIntegration = true;
     options = [
       "--cmd cd"
     ];
@@ -61,7 +53,7 @@
 
   programs.starship = {
     enable = true;
-    enableZshIntegration = true;
+    enableFishIntegration = true;
   };
 
   home.file.".config/starship.toml" = {
@@ -70,7 +62,7 @@
 
   programs.eza = {
     enable = true;
-    enableZshIntegration = true;
+    enableFishIntegration = true;
     git = true;
     icons = "auto";
     extraOptions = [
@@ -84,11 +76,11 @@
     ll = "eza -l";
     la = "eza -a";
     lt = "eza --tree";
-    listallusers = "zsh ${config.home.homeDirectory}/myNixOS/scripts/listallusers.sh";
+    listallusers = "${config.home.homeDirectory}/myNixOS/scripts/listallusers.sh";
 
     # Home-manager
     rebuild = "cd myNixOS/ && sudo nixos-rebuild switch --flake .#nixos";
-    update = "cd / myNixOS/ && sudo nix flake update && sudo nixos-rebuild switch --flake .#nixos";
+    update = "cd myNixOS/ && sudo nix flake update && sudo nixos-rebuild switch --flake .#nixos";
     hh = "cd myNixOS/ && home-manager switch --flake .#miranda@nixos";
     cleanup = "sudo nix-collect-garbage -d";
     hhr = "home-manager switch --flake . && gnome-session-quit --logout";

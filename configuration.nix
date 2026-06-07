@@ -25,7 +25,7 @@
   nix.settings.auto-optimise-store = true;
 
 
- programs.zsh.enable = true;
+ programs.fish.enable = true;
  programs.niri.enable = true;
 
 
@@ -104,7 +104,7 @@
   users.users."miranda" = {
     isNormalUser = true;
     description = "miranda";
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       
