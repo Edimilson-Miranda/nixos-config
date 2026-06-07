@@ -7,8 +7,7 @@
 }:
 
   let
-  spicetify-nix = inputs.spicetify-nix;
-  spice-lib = spicetify-nix.lib.${pkgs.system};
+  spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.system};
   in
 {
   imports = [ spicetify-nix.homeManagerModules.default ];  
