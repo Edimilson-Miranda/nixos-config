@@ -47,13 +47,13 @@
     
     programs.spicetify = lib.mkIf config.myconfig.features.software {
       enable = true;
-      theme = spicetify-nix.themes.onepunch;
+      themes = spicetify-nix.themes.onepunch;
       enabledExtensions = with spicetify-nix.extensions; [
         adblock
         shuffle
       ];
     };
-    
+
     programs.brave = {
       enable = config.myconfig.features.software;
     };
