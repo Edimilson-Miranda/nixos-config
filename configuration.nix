@@ -131,7 +131,7 @@
     wget
     git
     niri
-    jetbrains-toolbox
+    jetbrains.idea-ultimate
 
   ];
 
