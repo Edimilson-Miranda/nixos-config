@@ -131,7 +131,7 @@
     wget
     git
     niri
-    jetbrains.idea-ultimate
+    jetbrains.idea
 
   ];
 
