@@ -8,7 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      inputs.silentSDDM.nixosModules.defaulta
+      inputs.silentSDDM.nixosModules.default
     ];
 
 	nix.settings.experimental-features = [
