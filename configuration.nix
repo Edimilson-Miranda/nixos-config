@@ -28,6 +28,13 @@
  programs.fish.enable = true;
  programs.niri.enable = true;
 
+  # Habilita o suporte a Java no sistema
+  programs.java = {
+    enable = true;
+    # Você pode definir a versão específica do JDK. Ex: pkgs.jdk11, pkgs.jdk17, pkgs.jdk21
+    package = pkgs.jdk21; 
+  };
+
 
  # Bootloader.
   boot.loader.systemd-boot.enable = true;
