@@ -82,9 +82,12 @@
     # Home-manager
     rebuild = "cd myNixOS/ && sudo nixos-rebuild switch --flake .#nixos";
     update = "cd myNixOS/ && sudo nix flake update && sudo nixos-rebuild switch --flake .#nixos";
-    hh = "cd myNixOS/ && home-manager switch --flake .#miranda@nixos";
     cleanup = "sudo nix-collect-garbage -d";
     hhr = "home-manager switch --flake . && gnome-session-quit --logout";
+    programs.fish.functions.hh = ''
+      cd ~/myNixOS
+      nix run home-manager -- switch --flake .#miranda@nixos $argv
+    '';
 
     # NixOS search
     ns = "nix search nixpkgs";
