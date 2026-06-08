@@ -33,7 +33,6 @@
     home.packages = lib.optionals config.myconfig.features.software (
       with pkgs;
       [
-        google-chrome
         obsidian
         vlc
         webtorrent_desktop
