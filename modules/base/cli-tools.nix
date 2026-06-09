@@ -32,4 +32,111 @@
       paging = "never";
     };
   };
+
+  {
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    //"source": "~/.config/fastfetch/images/darkwin-nix.png",
+    "type": "small",
+    "padding": {
+      "top": 1,
+      "right": 2,
+    },
+  },
+  "display": {
+    "separator": " ",
+  },
+  "modules": [
+    {
+      "type": "title",
+      "keyWidth": 10,
+    },
+    {
+      "type": "custom",
+      "format": "══════ Sistema ══════",
+    },
+    {
+      "type": "os",
+      "key": " ",
+      "keyColor": "34", // = color4
+    },
+    {
+      "type": "kernel",
+      "key": " ",
+      "keyColor": "34",
+    },
+    {
+      "type": "packages",
+      "format": "{} (nix)",
+      "key": " ",
+      "keyColor": "34",
+    },
+    {
+      "type": "shell",
+      "key": " ",
+      "keyColor": "34",
+    },
+    {
+      "type": "terminal",
+      "key": " ",
+      "keyColor": "34",
+    },
+    {
+      "type": "wm",
+      "key": " ",
+      "keyColor": "34",
+    },
+    {
+      "type": "cursor",
+      "key": " ",
+      "keyColor": "34",
+    },
+    {
+      "type": "terminalfont",
+      "key": " ",
+      "keyColor": "34",
+    },
+    {
+      "type": "break",
+    },
+    {
+      "type": "custom",
+      "format": "══════ Hardware ══════",
+    },
+    {
+      "type": "cpu",
+      "format": "{1} ({3}) @ {7} GHz",
+      "key": " ",
+      "keyColor": "33",
+    },
+    {
+      "type": "gpu",
+      "format": "{1} {2} @ {12} GHz",
+      "key": "󰢮 ",
+      "keyColor": "33",
+    },
+    {
+      "type": "memory",
+      "key": " ",
+      "keyColor": "33",
+    },
+    {
+      "type": "display",
+      "key": "󰍛 ",
+      "keyColor": "green",
+    },
+    {
+      "type": "disk",
+      "key": " ",
+      "keyColor": "green",
+    },
+    {
+      "type": "command",
+      "key": " ",
+      "keyColor": "magenta",
+      "text": "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days",
+    },
+  ],
+}
+
 }

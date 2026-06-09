@@ -41,6 +41,7 @@
       gpu-screen-recorder
       gpu-screen-recorder-gtk
       mpv
+      obs-studio
 
       nixd
       biome

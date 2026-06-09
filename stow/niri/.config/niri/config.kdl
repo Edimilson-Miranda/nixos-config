@@ -421,7 +421,7 @@ window-rule {
     match app-id=r#"^google-chrome$"#
     match app-id=r#"^vesktop$"#
 
-    block-out-from "screencast"
+   // block-out-from "screencast"
 }
 
 window-rule {
@@ -765,7 +765,6 @@ binds {
     // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }
 }
-    
+
 
 include "./noctalia.kdl"
-
