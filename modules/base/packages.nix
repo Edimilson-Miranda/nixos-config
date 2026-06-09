@@ -39,6 +39,8 @@
       fish
       bazaar
       gpu-screen-recorder
+      gpu-screen-recorder-gtk
+      mpv
 
       nixd
       biome
