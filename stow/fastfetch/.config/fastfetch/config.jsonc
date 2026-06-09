@@ -8,11 +8,10 @@
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
   "logo": {
     "source": "~/.config/fastfetch/images/darkwin-nix.png",
-    "type": "kitty-direct",
-    "height": 8,
-    "width": 15,
+    "type": "small",
     "padding": {
-      "top": 0,
+      "top": 1,
+      "right": 2,
     },
   },
   "display": {
