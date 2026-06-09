@@ -40,13 +40,10 @@
     "$schema" = "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json";
     logo = {
       source = "~/.config/fastfetch/nixos.txt";
-      keyWidth = 2;
       padding = {
         top =1;
         right = 6;
       };
-      height = 15;
-      width = 35;
       color."1" = "38;2;144;205;226";
     };
 
