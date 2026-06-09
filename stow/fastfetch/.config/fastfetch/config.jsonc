@@ -27,12 +27,6 @@
       "type": "custom",
       "format": "══════ Sistema ══════",
     },
-
-    {
-      "type": "host",
-      "key": "󰌢 ",
-      "keyColor": "#90CDE2",
-    },
     {
       "type": "os",
       "key": " ",
@@ -48,12 +42,6 @@
       "format": "{} (nix)",
       "key": " ",
       "keyColor": "#90CDE2",
-    },
-    {
-      "type": "command",
-      "key": "󱄅 ",
-      "keyColor": "#90CDE2",
-      "text": "readlink /run/current-system | grep -o '[0-9]\\+' | head -1",
     },
     {
       "type": "shell",
