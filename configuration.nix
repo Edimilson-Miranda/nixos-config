@@ -42,6 +42,8 @@
     theme = "default";
   };
 
+  systemd.services.fwupd-refresh.enable = false;
+
 
  # Bootloader.
   boot.loader.systemd-boot.enable = true;
