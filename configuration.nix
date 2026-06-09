@@ -139,6 +139,7 @@
     git
     niri
     jetbrains.idea
+    stow 
 
   ];
 
