@@ -31,14 +31,14 @@
       nil
       vscodium
       firefox
-      nemo 
+      nemo
       teams-for-linux
       rclone
       opencode
-      zed-editor 
+      zed-editor
       fish
       bazaar
-      
+      gpu-screen-recorder
 
       nixd
       biome

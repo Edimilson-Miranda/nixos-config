@@ -9,8 +9,8 @@
   "logo": {
     "source": "~/.config/fastfetch/images/darkwin-nix.png",
     "type": "kitty-direct",
-    "height": 15,
-    "width": 35,
+    "height": 8,
+    "width": 15,
     "padding": {
       "top": 0,
     },
