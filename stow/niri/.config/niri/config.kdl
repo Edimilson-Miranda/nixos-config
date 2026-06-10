@@ -427,10 +427,8 @@ window-rule {
 
 window-rule {
     match app-id=r#"nemo$"#
-    default-column-width { fixed 1000; }
-    default-window-height { fixed 700; }
     open-floating true
-    default-floating-position x=0 y=14.5 relative-to="top"
+    opacity 0.95
 }
 
 // Open the Firefox picture-in-picture player as floating by default.
