@@ -120,6 +120,7 @@ output "DP-2" {
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Layout
 layout {
+    background-color "transparent"
     // Set gaps around windows in logical pixels.
     gaps 5
 
@@ -148,7 +149,7 @@ layout {
     // preset-window-heights { }
 
     // You can change the default width of the new windows.
-    default-column-width { proportion 0.5; }
+    //default-column-width { proportion 0.5; }
     // If you leave the brackets empty, the windows themselves will decide their initial width.
     // default-column-width {}
 
@@ -169,7 +170,7 @@ layout {
         off
 
         // How many logical pixels the ring extends out from the windows.
-        width 4
+        width 1.5 
 
         // Colors can be set in a variety of ways:
         // - CSS named colors: "red"
@@ -177,13 +178,13 @@ layout {
         // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
 
         // Color of the ring on the active monitor.
-        active-color "#7fc8ff"
-
-        // Color of the ring on inactive monitors.
+        //active-color "#7fc8ff"
+        active-gradient from="#80c8ff" to="#c7ff7f" angle=45
+        inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"        // Color of the ring on inactive monitors.
         //
         // The focus ring only draws around the active window, so the only place
         // where you can see its inactive-color is on other monitors.
-        inactive-color "#505050"
+        //inactive-color "#505050"
 
         // You can also use gradients. They take precedence over solid colors.
         // Gradients are rendered the same as CSS linear-gradient(angle, from, to).
@@ -207,7 +208,7 @@ layout {
         // If you enable the border, you probably want to disable the focus ring.
         // on
 
-        width 4
+        width 2
         active-color "#7fc8ff"
         inactive-color "#505050"
 
@@ -241,7 +242,7 @@ layout {
         // window. These will also remove client-side shadows if the window
         // draws any.
         //
-        // draw-behind-window true
+        draw-behind-window true
 
         // You can change how shadows look. The values below are in logical
         // pixels and match the CSS box-shadow properties.
@@ -385,7 +386,7 @@ window-rule {
     opacity 0.8
 
     // Rounded corners look better with transparency.
-    geometry-corner-radius 16
+    geometry-corner-radius 12
     clip-to-geometry true
 
     // Prevent border/focus background from showing through badly.
@@ -425,15 +426,11 @@ window-rule {
 }
 
 window-rule {
-    // This regular expression is intentionally made as specific as possible,
-    // since this is the default config, and we want no false positives.
-    // You can get away with just app-id="wezterm" if you want.
-    // match app-id=r#"^org\.wezfurlong\.wezterm$"#
-    // default-column-width {}
-
-    // background-effect {
-    //   blur true
-    // }
+    match app-id=r#"nemo$"#
+    default-column-width { fixed 1000; }
+    default-window-height { fixed 900; }
+    open-floating true
+    default-floating-position x=0 y=14.5 relative-to="top"
 }
 
 // Open the Firefox picture-in-picture player as floating by default.
@@ -446,7 +443,7 @@ window-rule {
 }
 
 window-rule {
-    geometry-corner-radius 15
+    geometry-corner-radius 12
     clip-to-geometry true
     background-effect {
       saturation 0.9
