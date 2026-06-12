@@ -202,13 +202,6 @@
                     "textColor": "tertiary"
                 },
                 {
-                    "applyToAllMonitors": true,
-                    "displayMode": "alwaysShow",
-                    "iconColor": "tertiary",
-                    "id": "Brightness",
-                    "textColor": "tertiary"
-                },
-                {
                     "colorizeDistroLogo": false,
                     "colorizeSystemIcon": "tertiary",
                     "colorizeSystemText": "none",

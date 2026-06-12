@@ -396,8 +396,8 @@ window-rule {
     background-effect {
         blur true
         xray false
-        // noise 0.02
-        // saturation 1.2
+        noise 0.02
+        saturation 1.8
     }
 
     popups {
@@ -418,8 +418,7 @@ window-rule {
 
 window-rule {
     match app-id=r#"^discord$"#
-    match app-id=r#"^brave-browser$"#
-    match app-id=r#"^google-chrome$"#
+    match app-id=r#"^firefox-browser$"#
     match app-id=r#"^vesktop$"#
 
    // block-out-from "screencast"
@@ -440,10 +439,16 @@ window-rule {
 }
 
 window-rule {
+  match app-id="^kitty$"
+  background-effect {
+    blur true
+  }
+}
+window-rule {
     geometry-corner-radius 12
     clip-to-geometry true
     background-effect {
-      saturation 0.9
+      saturation 1.8
       blur true
     }
 }
