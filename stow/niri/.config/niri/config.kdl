@@ -407,7 +407,7 @@ window-rule {
             blur true
             xray false
             noise 0.02
-            saturation 1.2
+            saturation 1.8
         }
     }
 }
